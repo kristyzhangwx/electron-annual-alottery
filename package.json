@@ -1,0 +1,17 @@
+{
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.56",
+    "electron": "^20.1.1",
+    "prettier":
+     "^2.7.1"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0"
+  }
+}

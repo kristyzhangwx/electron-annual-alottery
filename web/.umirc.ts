@@ -4,6 +4,11 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [{ path: '/', component: '@/pages/index' }],
+  history: {
+    type: 'hash',
+  },
+  publicPath: './',
+  routes: [{ path: '/', exact: true, component: '@/pages/index' }],
   fastRefresh: {},
+  outputPath: '../dist',
 });

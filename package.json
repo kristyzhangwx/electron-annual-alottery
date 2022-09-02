@@ -1,9 +1,9 @@
 {
-  "main": "dist/main.js",
+  "main": "build/main.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "start": "npm run build && electron ./dist/main.js"
+    "dev": "set NODE_ENV=development && tsc && electron ./build/main.js",
+    "build": "set NODE_ENV=production && tsc",
+    "pro": "npm run build && electron ./build/main.js"
   },
   "devDependencies": {
     "@types/node": "^16.11.56",

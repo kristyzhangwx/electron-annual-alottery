@@ -1,5 +1,8 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
+
+const node_env = process.env.NODE_ENV;
+
 let mainWindow: Electron.BrowserWindow;
 /**
  *
@@ -13,10 +16,14 @@ function createWindow(): void {
     },
     width: 800,
   });
-  debugger;
   // and load the index.html of the app.
-  // mainWindow.loadFile(path.join(__dirname, '../html/index.html'));
-  mainWindow.loadURL('http://localhost:8000/');
+
+  // TODO 区分当前环境
+  if (node_env === 'development') {
+    mainWindow.loadURL('http://localhost:8000/');
+  } else {
+    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+  }
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   // Emitted when the window is closed.
